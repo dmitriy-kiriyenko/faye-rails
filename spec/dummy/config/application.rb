@@ -41,6 +41,19 @@ module Dummy
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.middleware.use FayeRails::Middleware, mount: '/faye_without_extension', :timeout => 25
+    config.middleware.use FayeRails::Middleware, mount: '/faye_with_extension', :timeout => 25 do
+      class MockExtension
+        def incoming(message, callback)
+          callback.call(message)
+        end
+        def outgoing(message, callback)
+          callback.call(message)
+        end
+      end
+      add_extension(MockExtension.new)
+    end
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
