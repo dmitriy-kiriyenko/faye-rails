@@ -5,7 +5,7 @@ request it some day, maybe, but I believe, upstream
 maintainer won't accept it, because now there is no
 beatutiful way to write routes and I am too lazy to invent
 it. You still can write routes, but they will be placed in
-`config/application.rb`.
+`config/application.rb` or where you put your `middleware.use`.
 
 # faye-rails
 
