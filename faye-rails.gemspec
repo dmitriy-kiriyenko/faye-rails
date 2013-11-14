@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
   s.name        = "faye-rails"
   s.version     = "#{FayeRails::VERSION}"
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["James Harton", "Ryan Lovelett"]
-  s.email       = ["james@sociable.co.nz", "ryan@lovelett.me"]
-  s.homepage    = "https://github.com/jamesotron/faye-rails"
-  s.summary     = "Faye bindings for Rails 3.1+."
+  s.authors     = ["James Harton", "Ryan Lovelett", "Dmitriy Kiriyenko"]
+  s.email       = ["james@sociable.co.nz", "ryan@lovelett.me", "dmitriy.kiriyenko@gmail.com"]
+  s.homepage    = "https://github.com/dmitriy-kiriyenko/faye-rails"
+  s.summary     = "Faye bindings for Rails 4+."
   s.license     = 'MIT'
 
   s.add_dependency "faye", ["~> 0.8.9"]
