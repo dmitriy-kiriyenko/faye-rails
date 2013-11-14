@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "faye", ["~> 0.8.9"]
   s.add_dependency 'eventmachine', ['~> 1.0.0']
-  s.add_development_dependency "rails", ["~> 3.1"]
+  s.add_development_dependency "rails", ["~> 4.0"]
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec"
   s.add_development_dependency 'rspec-core'

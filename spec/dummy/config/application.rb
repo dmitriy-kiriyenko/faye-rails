@@ -3,8 +3,8 @@ require File.expand_path('../boot', __FILE__)
 # Pick the frameworks you want:
 require "active_record/railtie"
 require "action_controller/railtie"
-#require "action_mailer/railtie"
-require "active_resource/railtie"
+# require "action_mailer/railtie"
+# require "active_resource/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -46,6 +46,8 @@ module Dummy
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.eager_load = false
 
     config.assets.enabled = true
     config.assets.version = '1.0'
