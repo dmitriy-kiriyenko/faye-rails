@@ -32,6 +32,8 @@ RSpec.configure do |config|
 
   # Configure transactions
   config.before(:suite) do
+    ActiveRecord::Migration.verbose = false unless ENV.has_key?('DEBUG')
+
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
   end

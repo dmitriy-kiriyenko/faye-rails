@@ -3,8 +3,8 @@ require File.expand_path('../boot', __FILE__)
 # Pick the frameworks you want:
 require "active_record/railtie"
 require "action_controller/railtie"
-#require "action_mailer/railtie"
-require "active_resource/railtie"
+# require "action_mailer/railtie"
+# require "active_resource/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -41,11 +41,26 @@ module Dummy
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.middleware.use FayeRails::Middleware, mount: '/faye_without_extension', :timeout => 25
+    config.middleware.use FayeRails::Middleware, mount: '/faye_with_extension', :timeout => 25 do
+      class MockExtension
+        def incoming(message, callback)
+          callback.call(message)
+        end
+        def outgoing(message, callback)
+          callback.call(message)
+        end
+      end
+      add_extension(MockExtension.new)
+    end
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.eager_load = false
 
     config.assets.enabled = true
     config.assets.version = '1.0'

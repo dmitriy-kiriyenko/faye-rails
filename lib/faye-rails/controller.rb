@@ -1,10 +1,10 @@
+require 'faye-rails/controller/channel'
+require 'faye-rails/controller/monitor'
+require 'faye-rails/controller/message'
+require 'faye-rails/controller/observer_factory'
+
 module FayeRails
   class Controller
-    autoload :Channel, File.join(FayeRails::ROOT, 'faye-rails', 'controller', 'channel')
-    autoload :Monitor, File.join(FayeRails::ROOT, 'faye-rails', 'controller', 'monitor')
-    autoload :Message, File.join(FayeRails::ROOT, 'faye-rails', 'controller', 'message')
-    autoload :ObserverFactory, File.join(FayeRails::ROOT, 'faye-rails', 'controller', 'observer_factory')
-
     attr :channels, :model
 
     # Observe a model for any of the ActiveRecord::Callbacks

@@ -1,19 +1,17 @@
 require 'faye'
 require 'faye-rails/version'
-require 'faye-rails/routing_hooks'
+require 'faye-rails/middleware'
 require 'faye-rails/server_list'
 
-module FayeRails
-  ROOT = File.expand_path(File.dirname(__FILE__))
+require 'faye-rails/controller'
+require 'faye-rails/rack_adapter'
+require 'faye-rails/filter'
 
+module FayeRails
   if defined? ::Rails
     class Engine < ::Rails::Engine
     end
   end
-
-  autoload :Controller,        File.join(ROOT, 'faye-rails', 'controller')
-  autoload :RackAdapter,       File.join(ROOT, 'faye-rails', 'rack_adapter')
-  autoload :Filter,            File.join(ROOT, 'faye-rails', 'filter')
 
   def self.servers
     @servers ||= ServerList.new
