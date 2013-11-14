@@ -1,3 +1,12 @@
+# Fork notice
+
+This is a fork that works with Rails 4. I'm going to pull
+request it some day, maybe, but I believe, upstream
+maintainer won't accept it, because now there is no
+beatutiful way to write routes and I am too lazy to invent
+it. You still can write routes, but they will be placed in
+`config/application.rb`.
+
 # faye-rails
 
 faye-rails is a Ruby gem which handles embedding Faye's rack-based server
